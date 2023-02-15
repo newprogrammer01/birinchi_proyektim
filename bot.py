@@ -3,34 +3,107 @@ from telegram import Update, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboard
 import os 
 
 TOKEN=os.environ['TOKEN']
-from flask import Flask, request
+#from flask import Flask, request
 
 
-app=Flask(__name__)
+#app=Flask(__name__)
 
-@app.route('/')
+#@app.route('/')
 
 
 def start(update: Update, context:CallbackContext):
     chat_id=update.message.chat.id 
     keyboar=ReplyKeyboardMarkup([
-        ['Uzbek tili'],['русский язык']
+        ['Uzbek tili 🇺🇿'],['русский язык 🇷🇺']
     ])
+
     bot=context.bot
     bot.sendMessage(chat_id=chat_id, text='Tilni tanlang // Выберите язык',reply_markup=keyboar)
-def malumot(update: Update, context:CallbackContext):
+def uzbek_tili(update: Update, context:CallbackContext):
     chat_id=update.message.chat.id
     keyboar=ReplyKeyboardMarkup([
-        ["Ma'lumot olish", "Biz bilan bog'lanish"]
+        ["Ma'lumot olish", "Biz bilan bog'lanish"], ["Asosiy menu"]
     ])
     bot=context.bot
     bot.sendMessage(chat_id=chat_id,text="Assalomu alaykum xurmatli mijoz siz bu bot orqali uzingizni qiziqtirgan savollarga javob topishingiz hamda mahsulot xarid qilish uchun biz bilan bog'lanishingiz mumkin", reply_markup=keyboar)
 
-if __name__ =='__main__':
-    app.run()
+def aloqa(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    keyboar=InlineKeyboardMarkup([
+        [InlineKeyboardButton(callback_data='tel',text='Telifon raqamimiz ☎️')],
+        #[InlineKeyboardButton(url='tatamisooft.uz@gmail.com', text='Bizning email pochtamiz 📧')],
+        [InlineKeyboardButton(text='Instagram profilimiz', url="https://instagram.com/sooft_uz?igshid=YmMyMTA2M2Y=")],
+        [InlineKeyboardButton(text='Telegram kanalimiz', url='https://t.me/sooft_uz')],
+        [InlineKeyboardButton(text='Locatsiyamiz', url='https://maps.app.goo.gl/qRtfHp1vHksMXUkx9')],
+        [InlineKeyboardButton(text=' Bizning manzil', callback_data='manzilimiz')]
+        
+    ])
+    bot.sendMessage(chat_id=chat_id, text="Marxamat tanlang!!!", reply_markup=keyboar)
+
+
+def ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    keyboar=ReplyKeyboardMarkup([
+        ['Получить информацию','связаться с нами'],['главное меню']
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboar, text='Здравствуйте, уважаемый покупатель, через этого бота вы можете найти ответы на интересующие вас вопросы и связаться с нами для приобретения продукции.')
+def aloqa_ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    keyboar=InlineKeyboardMarkup([
+        [InlineKeyboardButton(text='Наш номер телефона ☎️', callback_data='tel_ruscha')],
+        [InlineKeyboardButton(text='Наш профиль в инстаграмм',url="https://instagram.com/sooft_uz?igshid=YmMyMTA2M2Y=")],
+        [InlineKeyboardButton(text='Наш Telegram-канал', url='https://t.me/sooft_uz')],
+        [InlineKeyboardButton(text='Наше место нахождения', url='https://maps.app.goo.gl/qRtfHp1vHksMXUkx9')],
+        [InlineKeyboardButton(text='Наш адрес', callback_data='manzilimiz_ruscha')]
+
+
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboar, text='Пожалуйста, выбери!!!')
+
+def malumot_ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-15_23-31-13.jpg','rb'))
+    bot.sendMessage(chat_id=chat_id,
+     text=""
+     )
+def query(update: Update, context: CallbackContext):
+    query=update.callback_query
+    chat_id=query.message.chat.id
+    data=query.data
+    bot=context.bot
+    
+
+    if data=='tel':
+       # bot.send_contact(chat_id=chat_id, phone_number="+998904776646", first_name='sooft_admin')
+         bot.send_contact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT_admin')
+    elif data=='manzilimiz':
+        bot.sendMessage(chat_id=chat_id, text="📍Bizning manzilimiz Samarqand viloyati Jomboy tumani Farhod shaharchasi Shirin mahallasida joylashgan.\n😎 Yana bir gap, bizga masofa hech qanday to'sqinlik qila olmaydi. Chunki Sooftda tezkor va ehtiyotlab yetkazib berish xizmati ham mavjud")
+    elif data=='tel_ruscha':
+        bot.send_contact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT администратор')
+    elif data=='manzilimiz_ruscha':
+        bot.sendMessage(chat_id=chat_id, text="📍Наш адрес находится в микрорайоне Ширин, г. Фарход, Жомбойский район, Самаркандская область.\n😎Потому что у Sooft также есть быстрая и точная служба доставки.")
+    query.answer('No')
+
+
+
+
+
+# if __name__ =='__main__':
+#     app.run()
 updater=Updater(token=TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start',start))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Uzbek tili'),malumot))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Uzbek tili 🇺🇿'),uzbek_tili))
+updater.dispatcher.add_handler(MessageHandler(Filters.text("Biz bilan bog'lanish"),aloqa))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Asosiy menu'),start))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Получить информацию'),malumot_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('русский язык 🇷🇺'),ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('главное меню'), start))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('связаться с нами'), aloqa_ruscha))
+updater.dispatcher.add_handler(CallbackQueryHandler(query))
 updater.start_polling()
 updater.idle()
 
