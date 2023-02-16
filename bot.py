@@ -132,6 +132,7 @@ def query(update: Update, context: CallbackContext):
     data=query.data
     bot=context.bot
     
+    
 
     if data=='tel':
        # bot.send_contact(chat_id=chat_id, phone_number="+998904776646", first_name='sooft_admin')
@@ -143,6 +144,8 @@ def query(update: Update, context: CallbackContext):
     if data=='manzilimiz_ruscha':
         bot.sendMessage(chat_id=chat_id, text="📍Наш адрес находится в микрорайоне Ширин, г. Фарход, Жомбойский район, Самаркандская область.\n😎Потому что у Sooft также есть быстрая и точная служба доставки.")
     query.answer('No')
+
+
 
 
 
@@ -169,4 +172,8 @@ updater.dispatcher.add_handler(MessageHandler(Filters.text('возвращать
 updater.dispatcher.add_handler(CallbackQueryHandler(query))
 updater.start_polling()
 updater.idle()
+
+
+
+
 
