@@ -63,13 +63,39 @@ def aloqa_ruscha(update: Update, context: CallbackContext):
     ])
     bot.sendMessage(chat_id=chat_id, reply_markup=keyboar, text='Пожалуйста, выбери!!!')
 
+def malumot_uzbekcha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2022-10-20_09-35-37.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-03.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-10.jpg", 'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-33.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-48.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-04.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-28.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-37.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2022-10-28_16-01-18.jpg','rb'))
+    bot.sendMessage(chat_id=chat_id, text='Ulchamlari\n50sm*50sm\n60sm*60sm\n100sm*100sm\nNarxlari kvadratiga xisoblanadi\n1 sm qalinlikdagisi 70 000 sum\n2 sm qalinlikdagisi 130 000 sum\n4 sm qalinlikdagisi 260 000 sum\nTurli xil ranglaridan bor')
+   
 def malumot_ruscha(update: Update, context: CallbackContext):
     chat_id=update.message.chat.id
     bot=context.bot
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-15_23-31-13.jpg','rb'))
-    bot.sendMessage(chat_id=chat_id,
-     text=""
-     )
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2022-10-20_09-35-37.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-03.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-10.jpg", 'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-33.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-48.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-04.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-28.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-37.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2022-10-28_16-01-18.jpg','rb'))
+    bot.sendMessage(chat_id=chat_id, text='Размеры\n50см*50см\n60см*60см\n100см*100см\nЦена квадрата\n1 см толщина 70 000 сум\n2 см толщина 130 000 сум\n4 см толщина 260 000 сум\nРазличные цвета есть')
+    
+
+
+
+
+
 def query(update: Update, context: CallbackContext):
     query=update.callback_query
     chat_id=query.message.chat.id
@@ -99,10 +125,11 @@ updater.dispatcher.add_handler(CommandHandler('start',start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Uzbek tili 🇺🇿'),uzbek_tili))
 updater.dispatcher.add_handler(MessageHandler(Filters.text("Biz bilan bog'lanish"),aloqa))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Asosiy menu'),start))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Получить информацию'),malumot_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text("Ma'lumot olish"),malumot_uzbekcha))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('русский язык 🇷🇺'),ruscha))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('главное меню'), start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('связаться с нами'), aloqa_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Получить информацию'), malumot_ruscha))
 updater.dispatcher.add_handler(CallbackQueryHandler(query))
 updater.start_polling()
 updater.idle()
