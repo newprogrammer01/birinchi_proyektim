@@ -66,18 +66,11 @@ def aloqa_ruscha(update: Update, context: CallbackContext):
 def malumot_uzbekcha(update: Update, context: CallbackContext):
     chat_id=update.message.chat.id
     bot=context.bot
-    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2022-10-20_09-35-37.jpg",'rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-03.jpg",'rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-10.jpg", 'rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-33.jpg','rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-48.jpg','rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-04.jpg','rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-28.jpg','rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-37.jpg','rb'))
-    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2022-10-28_16-01-18.jpg','rb'))
-    bot.sendMessage(chat_id=chat_id, text='Ulchamlari\n50sm*50sm\n60sm*60sm\n100sm*100sm\nNarxlari kvadratiga xisoblanadi\n1 sm qalinlikdagisi 70 000 sum\n2 sm qalinlikdagisi 130 000 sum\n4 sm qalinlikdagisi 260 000 sum\nTurli xil ranglaridan bor')
-   
-def malumot_ruscha(update: Update, context: CallbackContext):
+    keyboar=ReplyKeyboardMarkup([
+        ['Rasmlari 📸'],['Ulchamlari va narxlari 💶'],['Orqaga qaytish ◀️']
+    ])
+    bot.sendMessage(chat_id=chat_id, text='Marxamat tanishib chiqishingiz mumkin!', reply_markup=keyboar)
+def photo_uzbekcha(update: Update, context: CallbackContext):
     chat_id=update.message.chat.id
     bot=context.bot
     bot.sendPhoto(chat_id=chat_id, photo=open("photo_2022-10-20_09-35-37.jpg",'rb'))
@@ -89,9 +82,46 @@ def malumot_ruscha(update: Update, context: CallbackContext):
     bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-28.jpg','rb'))
     bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-37.jpg','rb'))
     bot.sendPhoto(chat_id=chat_id, photo=open('photo_2022-10-28_16-01-18.jpg','rb'))
-    bot.sendMessage(chat_id=chat_id, text='Размеры\n50см*50см\n60см*60см\n100см*100см\nЦена квадрата\n1 см толщина 70 000 сум\n2 см толщина 130 000 сум\n4 см толщина 260 000 сум\nРазличные цвета есть')
-    
+    #bot.sendMessage(chat_id=chat_id, text='Ulchamlari\n50sm*50sm\n60sm*60sm\n100sm*100sm\nNarxlari kvadratiga xisoblanadi\n1 sm qalinlikdagisi 70 000 sum\n2 sm qalinlikdagisi 130 000 sum\n4 sm qalinlikdagisi 260 000 sum\nTurli xil ranglaridan bor')
+def money_uzbekcha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    #bot.sendMessage(chat_id=chat_id, text='Ulchamlari\n50sm*50sm\n60sm*60sm\n100sm*100sm\nNarxlari kvadratiga xisoblanadi\n1 sm qalinlikdagisi 70 000 sum\n2 sm qalinlikdagisi 130 000 sum\n4 sm qalinlikdagisi 260 000 sum\nTurli xil ranglaridan bor')
+    bot.sendPhoto(chat_id=chat_id, photo=open('Screenshot from 2023-02-16 17-08-03.png','rb'))
+    bot.sendMessage(chat_id=chat_id, text='Sotib olmoqchi bulsangiz @sooft_admin akkauntiga olmoqchi bulgan maxsulotlaringizni ulchamlarini yozib yuboring uzimiz sizga aloqaga chiqamiz')
 
+def money_ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    bot.sendPhoto(chat_id=chat_id, photo=open('Screenshot from 2023-02-16 17-39-44.png','rb'))
+    bot.sendMessage(chat_id=chat_id, text='Если вы хотите купить, напишите размер продуктов, которые вы хотите купить, в аккаунт @sooft_admin, и мы свяжемся с вами.')
+
+
+
+
+
+def malumot_ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    keyboar=ReplyKeyboardMarkup([
+        ['картинки 📸'],['Размеры и цены 💶'],['возвращаться ◀️']
+    ])
+    bot.sendMessage(chat_id=chat_id, reply_markup=keyboar, text='Взгляни, пожалуйста!')
+   
+    #bot.sendMessage(chat_id=chat_id, text='Размеры\n50см*50см\n60см*60см\n100см*100см\nЦена квадрата\n1 см толщина 70 000 сум\n2 см толщина 130 000 сум\n4 см толщина 260 000 сум\nРазличные цвета есть')
+   
+def photo_ruscha(update: Update, context: CallbackContext):
+    chat_id=update.message.chat.id
+    bot=context.bot
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2022-10-20_09-35-37.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-03.jpg",'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open("photo_2023-02-16_12-42-10.jpg", 'rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-33.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-55-48.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-04.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-28.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2023-02-16_13-56-37.jpg','rb'))
+    bot.sendPhoto(chat_id=chat_id, photo=open('photo_2022-10-28_16-01-18.jpg','rb'))
 
 
 
@@ -105,12 +135,12 @@ def query(update: Update, context: CallbackContext):
 
     if data=='tel':
        # bot.send_contact(chat_id=chat_id, phone_number="+998904776646", first_name='sooft_admin')
-         bot.send_contact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT_admin')
+         bot.sendContact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT_admin')
     elif data=='manzilimiz':
         bot.sendMessage(chat_id=chat_id, text="📍Bizning manzilimiz Samarqand viloyati Jomboy tumani Farhod shaharchasi Shirin mahallasida joylashgan.\n😎 Yana bir gap, bizga masofa hech qanday to'sqinlik qila olmaydi. Chunki Sooftda tezkor va ehtiyotlab yetkazib berish xizmati ham mavjud")
     elif data=='tel_ruscha':
-        bot.send_contact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT администратор')
-    elif data=='manzilimiz_ruscha':
+        bot.sendContact(chat_id=chat_id, phone_number=+998904776646, first_name='SOOFT администратор')
+    if data=='manzilimiz_ruscha':
         bot.sendMessage(chat_id=chat_id, text="📍Наш адрес находится в микрорайоне Ширин, г. Фарход, Жомбойский район, Самаркандская область.\n😎Потому что у Sooft также есть быстрая и точная служба доставки.")
     query.answer('No')
 
@@ -130,6 +160,12 @@ updater.dispatcher.add_handler(MessageHandler(Filters.text('русский яз�
 updater.dispatcher.add_handler(MessageHandler(Filters.text('главное меню'), start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('связаться с нами'), aloqa_ruscha))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Получить информацию'), malumot_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Rasmlari 📸'), photo_uzbekcha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Ulchamlari va narxlari 💶'), money_uzbekcha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('картинки 📸'), photo_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Размеры и цены 💶'), money_ruscha))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Orqaga qaytish ◀️'),uzbek_tili))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('возвращаться ◀️'),ruscha))
 updater.dispatcher.add_handler(CallbackQueryHandler(query))
 updater.start_polling()
 updater.idle()
