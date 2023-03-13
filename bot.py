@@ -40,7 +40,7 @@ def aloqa(update: Update, context: CallbackContext):
         
     ])
     bot.sendMessage(chat_id=chat_id, text="Marxamat tanlang!!!", reply_markup=keyboar)
-
+#srkgergvjnd.vkjndlvsbjias.kbae
 
 def ruscha(update: Update, context: CallbackContext):
     chat_id=update.message.chat.id
